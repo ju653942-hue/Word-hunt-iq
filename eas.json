@@ -1,7 +1,4 @@
 {
-  "cli": {
-    "packageManager": "npm"
-  },
   "build": {
     "preview": {
       "distribution": "internal",
