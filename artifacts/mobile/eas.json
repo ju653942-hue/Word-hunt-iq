@@ -12,6 +12,10 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "NODE_ENV": "production",
+        "EAS_BUILD_DISABLE_FROZEN_LOCKFILE": "1"
       }
     },
     "production": {
