@@ -10,6 +10,7 @@
     },
     "preview": {
       "distribution": "internal",
+      "projectRoot": "artifacts/mobile",
       "android": {
         "buildType": "apk"
       },
