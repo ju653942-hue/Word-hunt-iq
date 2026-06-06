@@ -1,4 +1,8 @@
 {
+  "cli": {
+    "version": ">= 16.0.0",
+    "promptToInstallUpdates": false
+  },
   "build": {
     "development": {
       "developmentClient": true,
@@ -15,7 +19,7 @@
       },
       "env": {
         "NODE_ENV": "production",
-        "EAS_BUILD_DISABLE_FROZEN_LOCKFILE": "1"
+        "NPM_CONFIG_FROZEN_LOCKFILE": "false"
       }
     },
     "production": {
@@ -24,7 +28,8 @@
         "gradleCommand": ":app:bundleRelease"
       },
       "env": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "NPM_CONFIG_FROZEN_LOCKFILE": "false"
       }
     }
   },
