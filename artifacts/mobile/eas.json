@@ -1,8 +1,4 @@
 {
-  "cli": {
-    "version": ">= 16.0.0",
-    "promptToInstallUpdates": false
-  },
   "build": {
     "development": {
       "developmentClient": true,
@@ -16,6 +12,10 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "NODE_ENV": "production",
+        "EAS_BUILD_DISABLE_FROZEN_LOCKFILE": "1"
       }
     },
     "production": {
