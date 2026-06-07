@@ -10,7 +10,7 @@
     "icon": "./assets/Images/icon.png",
     "scheme": "wordhunt",
     "userInterfaceStyle": "dark",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "splash": {
       "image": "./assets/Images/icon.png",
       "resizeMode": "contain",
@@ -24,8 +24,8 @@
     "android": {
       "package": "com.wordhunt.game",
       "versionCode": 1,
-      "compileSdkVersion": 35,
-      "targetSdkVersion": 35,
+      "compileSdkVersion": 34,
+      "targetSdkVersion": 34,
       "minSdkVersion": 24,
       "adaptiveIcon": {
         "foregroundImage": "./assets/Images/icon.png",
@@ -57,7 +57,6 @@
         }
       ],
       "expo-font",
-      "expo-web-browser",
       [
         "react-native-google-mobile-ads",
         {
@@ -77,8 +76,7 @@
       ]
     ],
     "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
+      "typedRoutes": true
     },
     "extra": {
       "eas": {
