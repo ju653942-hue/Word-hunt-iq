@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Word Hunt",
-    "slug": "word-hunt-game",
+    "slug": "word-hunt-iq",
     "version": "1.0.0",
     "runtimeVersion": {
       "policy": "appVersion"
