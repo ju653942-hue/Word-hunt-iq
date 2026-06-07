@@ -10,6 +10,7 @@
     },
     "preview": {
       "distribution": "internal",
+      "image": "latest",
       "android": {
         "buildType": "apk"
       },
@@ -18,8 +19,7 @@
         "NODE_ENV": "production",
         "NPM_CONFIG_FROZEN_LOCKFILE": "false",
         "YARN_IGNORE_ENGINES": "1",
-        "EAS_BUILD_DISABLE_BUNDLE_JAVASCRIPT_STEP": "1",
-        "JAVA_HOME": "/usr/lib/jvm/java-17-openjdk-amd64"
+        "EAS_BUILD_DISABLE_BUNDLE_JAVASCRIPT_STEP": "1"
       }
     },
     "production": {
