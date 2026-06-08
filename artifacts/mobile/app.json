@@ -59,10 +59,7 @@
       "expo-font",
       [
         "react-native-google-mobile-ads",
-        {
-          "androidAppId": "ca-app-pub-4356067796830671~9507716748",
-          "iosAppId": "ca-app-pub-4356067796830671~9507716748"
-        }
+        
       ],
       [
         "expo-splash-screen",
