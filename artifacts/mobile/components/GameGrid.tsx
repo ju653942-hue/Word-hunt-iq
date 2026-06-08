@@ -418,7 +418,8 @@ export default function GameGrid() {
   const currentSelectionRef = useRef<CellCoord[]>([]);
   const lastEndCellRef      = useRef<string | null>(null);
   // Derived view origin in page coords (computed once on grant — reliable on all Android versions)
-  const viewOriginRef       = useRef({ x: 0, y: 0 });
+  const grantPageRef = useRef({ x: 0, y: 0 });
+const grantCellRef = useRef<CellCoord | null>(null);
 
   const gridSize    = puzzle?.gridSize ?? 8;
   const gridSizeRef = useRef(gridSize);
