@@ -539,7 +539,10 @@ const grantCellRef = useRef<CellCoord | null>(null);
         // Derive view origin once from the first touch event.
         // Both pageX/pageY and locationX/locationY come from the same ACTION_DOWN event
         // so their difference is always an accurate view-origin in page coordinates.
-        viewOriginRef.current = { x: pageX - locationX, y: pageY - locationY };
+        grantPageRef.current = { x: pageX, y: pageY };
+
+const cell = getCellFromLocation(locationX, locationY);
+grantCellRef.current = cell;
         const cell = getCellFromLocation(locationX, locationY);
         if (cell) {
           playSelectSound();
