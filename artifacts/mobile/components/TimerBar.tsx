@@ -119,8 +119,8 @@ export default function TimerBar() {
       // Tick every second from 15 down
       playTimerTickSound(timeLeft % 2 === 0);
       Animated.sequence([
-        Animated.spring(digitScale, { toValue: timeLeft <= 10 ? 1.22 : 1.12, tension: 400, friction: 5, useNativeDriver: true }),
-        Animated.spring(digitScale, { toValue: 1, tension: 280, friction: 8, useNativeDriver: true }),
+        Animated.spring(digitScale, { toValue: timeLeft <= 10 ? 1.22 : 1.12, tension: 400, friction: 5, useNativeDriver: false }),
+        Animated.spring(digitScale, { toValue: 1, tension: 280, friction: 8, useNativeDriver: false }),
       ]).start();
     } else {
       digitScale.setValue(1);
