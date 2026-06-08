@@ -551,24 +551,45 @@ grantCellRef.current = cell;
         }
       },
       onPanResponderMove: (evt) => {
-        // On Android ACTION_MOVE events, locationX/locationY can drift from the
-        // responder view's coordinate system. Use pageX/pageY with stored origin instead.
-        const { locationX, locationY } = evt.nativeEvent;
-const cell = getCellFromLocation(locationX, locationY);
-        if (!cell) return;
-        const start = currentSelectionRef.current[0];
-        if (!start) return;
-        const cellStr = `${cell.row}-${cell.col}`;
-        if (cellStr === lastEndCellRef.current) return;
-        lastEndCellRef.current = cellStr;
-        playCellTickSound();
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-        const lineCells = getLineCells(start, cell);
-        if (lineCells) {
-          currentSelectionRef.current = lineCells;
-          setSelectedCellsRef.current([...lineCells]);
-        }
-      },
+  const startCell = grantCellRef.current;
+  if (!startCell) return;
+
+  const { pageX, pageY } = evt.nativeEvent;
+
+  const cSize = cellSizeRef.current;
+  const gSize = gridSizeRef.current;
+  if (cSize === 0) return;
+
+  const deltaX = pageX - grantPageRef.current.x;
+  const deltaY = pageY - grantPageRef.current.y;
+
+  const col = Math.max(
+    0,
+    Math.min(gSize - 1, startCell.col + Math.round(deltaX / cSize))
+  );
+
+  const row = Math.max(
+    0,
+    Math.min(gSize - 1, startCell.row + Math.round(deltaY / cSize))
+  );
+
+  const cell: CellCoord = { row, col };
+
+  const cellStr = `${row}-${col}`;
+  if (cellStr === lastEndCellRef.current) return;
+
+  lastEndCellRef.current = cellStr;
+
+  playCellTickSound();
+  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+
+  const lineCells = getLineCells(startCell, cell);
+
+  if (lineCells) {
+    currentSelectionRef.current = lineCells;
+    setSelectedCellsRef.current([...lineCells]);
+  }
+},
       onPanResponderRelease: () => {
         const cells = currentSelectionRef.current;
         if (cells.length >= 2) checkWord(cells);
