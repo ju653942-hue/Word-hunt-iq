@@ -529,7 +529,6 @@ const grantCellRef = useRef<CellCoord | null>(null);
     if (row >= 0 && row < gSize && col >= 0 && col < gSize) return { row, col };
     return null;
   };
-
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -543,7 +542,6 @@ const grantCellRef = useRef<CellCoord | null>(null);
 
 const cell = getCellFromLocation(locationX, locationY);
 grantCellRef.current = cell;
-        const cell = getCellFromLocation(locationX, locationY);
         if (cell) {
           playSelectSound();
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
