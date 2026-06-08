@@ -551,10 +551,8 @@ export default function GameGrid() {
       onPanResponderMove: (evt) => {
         // On Android ACTION_MOVE events, locationX/locationY can drift from the
         // responder view's coordinate system. Use pageX/pageY with stored origin instead.
-        const { pageX, pageY } = evt.nativeEvent;
-        const locationX = pageX - viewOriginRef.current.x;
-        const locationY = pageY - viewOriginRef.current.y;
-        const cell = getCellFromLocation(locationX, locationY);
+        const { locationX, locationY } = evt.nativeEvent;
+const cell = getCellFromLocation(locationX, locationY);
         if (!cell) return;
         const start = currentSelectionRef.current[0];
         if (!start) return;
