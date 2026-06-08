@@ -554,41 +554,23 @@ grantCellRef.current = cell;
   const startCell = grantCellRef.current;
   if (!startCell) return;
 
-  const { pageX, pageY } = evt.nativeEvent;
+  const { locationX, locationY } = evt.nativeEvent;
+  const cell = getCellFromLocation(locationX, locationY);
+  if (!cell) return;
 
-  const cSize = cellSizeRef.current;
-  const gSize = gridSizeRef.current;
-  if (cSize === 0) return;
-
-  const deltaX = pageX - grantPageRef.current.x;
-  const deltaY = pageY - grantPageRef.current.y;
-
-  const col = Math.max(
-    0,
-    Math.min(gSize - 1, startCell.col + Math.round(deltaX / cSize))
-  );
-
-  const row = Math.max(
-    0,
-    Math.min(gSize - 1, startCell.row + Math.round(deltaY / cSize))
-  );
-
-  const cell: CellCoord = { row, col };
-
-  const cellStr = `${row}-${col}`;
+  const cellStr = `${cell.row}-${cell.col}`;
   if (cellStr === lastEndCellRef.current) return;
-
   lastEndCellRef.current = cellStr;
 
   playCellTickSound();
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
   const lineCells = getLineCells(startCell, cell);
-
   if (lineCells) {
     currentSelectionRef.current = lineCells;
     setSelectedCellsRef.current([...lineCells]);
   }
+},
 },
       onPanResponderRelease: () => {
         const cells = currentSelectionRef.current;
