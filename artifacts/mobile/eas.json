@@ -1,8 +1,4 @@
 {
-  "cli": {
-    "version": ">= 16.0.0",
-    "promptToInstallUpdates": false
-  },
   "build": {
     "development": {
       "developmentClient": true,
