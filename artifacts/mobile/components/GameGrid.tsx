@@ -571,7 +571,6 @@ grantCellRef.current = cell;
     setSelectedCellsRef.current([...lineCells]);
   }
 },
-},
       onPanResponderRelease: () => {
         const cells = currentSelectionRef.current;
         if (cells.length >= 2) checkWord(cells);
