@@ -551,22 +551,21 @@ export default function GameGrid() {
       onMoveShouldSetPanResponder:  () => true,
       onPanResponderGrant: (evt) => {
         const { pageX, pageY } = evt.nativeEvent;
-        // Store page coords for delta tracking in MOVE.
         grantPageRef.current = { x: pageX, y: pageY };
-        // Use pageX/pageY minus the pre-measured grid origin to get grid-local coords.
-        // This avoids the Android issue where locationX/locationY are relative to the
-        // child GridCell view (~47px) rather than the grid container.
-        const locX = pageX - gridOriginRef.current.x;
-        const locY = pageY - gridOriginRef.current.y;
-        const cell = getCellFromLocation(locX, locY);
-        grantCellRef.current = cell;
-        if (cell) {
-          playSelectSound();
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-          lastEndCellRef.current = `${cell.row}-${cell.col}`;
-          currentSelectionRef.current = [cell];
-          setSelectedCellsRef.current([cell]);
-        }
+        gridRef.current?.measureInWindow((x, y) => {
+          gridOriginRef.current = { x, y };
+          const locX = pageX - x;
+          const locY = pageY - y;
+          const cell = getCellFromLocation(locX, locY);
+          grantCellRef.current = cell;
+          if (cell) {
+            playSelectSound();
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+            lastEndCellRef.current = `${cell.row}-${cell.col}`;
+            currentSelectionRef.current = [cell];
+            setSelectedCellsRef.current([cell]);
+          }
+        });
       },
       onPanResponderMove: (evt) => {
         const startCell = grantCellRef.current;
