@@ -7,12 +7,12 @@
       "policy": "appVersion"
     },
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/Images/icon.png",
     "scheme": "wordhunt",
     "userInterfaceStyle": "dark",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "splash": {
-      "image": "./assets/images/icon.png",
+      "image": "./assets/Images/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#0a0218"
     },
@@ -28,7 +28,7 @@
       "targetSdkVersion": 34,
       "minSdkVersion": 24,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
+        "foregroundImage": "./assets/Images/icon.png",
         "backgroundColor": "#0a0218"
       },
       "permissions": [
@@ -45,7 +45,7 @@
       ]
     },
     "web": {
-      "favicon": "./assets/images/icon.png",
+      "favicon": "./assets/Images/icon.png",
       "bundler": "metro",
       "description": "Word Hunt — find hidden words, build your streak, and challenge yourself daily in this fast-paced word puzzle game."
     },
@@ -57,12 +57,11 @@
         }
       ],
       "expo-font",
-      "expo-web-browser",
       [
         "expo-splash-screen",
         {
           "backgroundColor": "#0a0218",
-          "image": "./assets/images/icon.png",
+          "image": "./assets/Images/icon.png",
           "imageWidth": 200,
           "resizeMode": "contain"
         }
