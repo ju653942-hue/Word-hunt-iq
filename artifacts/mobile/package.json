@@ -10,7 +10,7 @@
     "build": "pnpm exec expo export --platform web --output-dir dist",
     "serve": "node server/serve.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "eas-build-pre-install": "cd ../.. && pnpm install --no-frozen-lockfile"
+    "eas-build-pre-install": "cd ../.. && pnpm install --no-frozen-lockfile && cp pnpm-lock.yaml artifacts/mobile/"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
