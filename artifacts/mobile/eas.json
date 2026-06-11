@@ -25,10 +25,14 @@
     "production": {
       "android": {
         "buildType": "app-bundle",
-        "gradleCommand": ":app:bundleRelease"
+        "gradleCommand": ":app:bundleRelease",
+        "image": "ubuntu-22.04-jdk-17-ndk-r21e"
       },
+      "node": "20.18.0",
       "env": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "NPM_CONFIG_FROZEN_LOCKFILE": "false",
+        "YARN_IGNORE_ENGINES": "1"
       }
     }
   },
