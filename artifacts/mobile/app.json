@@ -22,7 +22,7 @@
       "buildNumber": "1"
     },
     "android": {
-      "package": "com.wordhunt.game",
+      "package": "com.jalaltech.wordhuntiq",
       "versionCode": 1,
       "compileSdkVersion": 34,
       "targetSdkVersion": 34,
