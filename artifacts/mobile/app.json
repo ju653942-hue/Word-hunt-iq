@@ -23,7 +23,7 @@
     },
     "android": {
       "package": "com.jalaltech.wordhuntiq",
-      "versionCode": 1,
+      "versionCode": 2,
       "compileSdkVersion": 34,
       "targetSdkVersion": 34,
       "minSdkVersion": 24,
