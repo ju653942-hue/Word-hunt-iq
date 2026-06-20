@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Word Hunt",
-    "slug": "word-hunt-game",
-    "version": "1.0.2",
+    "slug": "word-hunt-iq",
+    "version": "1.0.1",
     "runtimeVersion": {
       "policy": "appVersion"
     },
@@ -79,7 +79,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "7e793c10-b47d-4922-9476-882bb0f11604"
+        "projectId": "8efad970-d4ce-41fa-8913-096c2979ce27"
       }
     }
   }
