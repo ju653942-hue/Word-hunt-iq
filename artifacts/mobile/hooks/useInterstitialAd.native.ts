@@ -1,42 +1,39 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import {
-  RewardedAd,
-  RewardedAdEventType,
+  InterstitialAd,
   AdEventType,
-  TestIds,
 } from "react-native-google-mobile-ads";
 
-export type AdState = "idle" | "loading" | "ready" | "showing" | "error" | "unsupported";
+export type InterstitialAdState = "idle" | "loading" | "ready" | "showing" | "error";
 
-const AD_UNIT_ID = "ca-app-pub-4356067796830671/2875593275";
+const AD_UNIT_ID = "ca-app-pub-4356067796830671/5104825895";
 
-export function useWatchAd(onRewarded: () => void) {
-  const [adState, setAdState] = useState<AdState>("loading");
-  const adRef = useRef<RewardedAd | null>(null);
-  const onRewardedRef = useRef(onRewarded);
-  onRewardedRef.current = onRewarded;
+export function useInterstitialAd() {
+  const [adState, setAdState] = useState<InterstitialAdState>("loading");
+  const adRef = useRef<InterstitialAd | null>(null);
+  const onCompleteRef = useRef<(() => void) | null>(null);
 
   const loadAd = useCallback(() => {
     setAdState("loading");
-    const ad = RewardedAd.createForAdRequest(AD_UNIT_ID, {
+    const ad = InterstitialAd.createForAdRequest(AD_UNIT_ID, {
       requestNonPersonalizedAdsOnly: false,
     });
     adRef.current = ad;
 
-    const unsubEarned = ad.addAdEventListener(RewardedAdEventType.EARNED_REWARD, () => {
-      onRewardedRef.current();
-    });
-
-    const unsubLoaded = ad.addAdEventListener(RewardedAdEventType.LOADED, () => {
+    const unsubLoaded = ad.addAdEventListener(AdEventType.LOADED, () => {
       setAdState("ready");
     });
 
     const unsubError = ad.addAdEventListener(AdEventType.ERROR, () => {
       setAdState("error");
+      onCompleteRef.current?.();
+      onCompleteRef.current = null;
       setTimeout(loadAd, 10000);
     });
 
     const unsubClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
+      onCompleteRef.current?.();
+      onCompleteRef.current = null;
       setAdState("loading");
       loadAd();
     });
@@ -44,7 +41,6 @@ export function useWatchAd(onRewarded: () => void) {
     ad.load();
 
     return () => {
-      unsubEarned();
       unsubLoaded();
       unsubError();
       unsubClosed();
@@ -56,26 +52,25 @@ export function useWatchAd(onRewarded: () => void) {
     return cleanup;
   }, [loadAd]);
 
-  const showAd = useCallback(async (): Promise<boolean> => {
+  const showAd = useCallback((onComplete: () => void) => {
     if (adRef.current && adState === "ready") {
-      try {
-        setAdState("showing");
-        await adRef.current.show();
-        return true;
-      } catch {
+      onCompleteRef.current = onComplete;
+      setAdState("showing");
+      adRef.current.show().catch(() => {
+        onCompleteRef.current?.();
+        onCompleteRef.current = null;
         setAdState("error");
         loadAd();
-        return false;
-      }
+      });
+    } else {
+      onComplete();
     }
-    return false;
   }, [adState, loadAd]);
 
   return {
     adState,
     isAdReady: adState === "ready",
     isAdLoading: adState === "loading",
-    isSupported: true,
     showAd,
   };
 }
