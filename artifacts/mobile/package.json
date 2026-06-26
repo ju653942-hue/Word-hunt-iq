@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "expo-av": "^16.0.8",
-    "expo-build-properties": "^0.14.0",
+    "expo-build-properties": "^0.14.0"
   },
   "resolutions": {
     "expo-server-sdk": "3.7.0"
