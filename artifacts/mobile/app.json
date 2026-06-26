@@ -24,8 +24,8 @@
     "android": {
       "package": "com.jalaltech.wordhuntiq",
       "versionCode": 2,
-      "compileSdkVersion": 35,
-      "targetSdkVersion": 35,
+      "compileSdkVersion": 34,
+      "targetSdkVersion": 34,
       "minSdkVersion": 24,
       "adaptiveIcon": {
         "foregroundImage": "./assets/Images/icon.png",
@@ -50,17 +50,6 @@
       "description": "Word Hunt — find hidden words, build your streak, and challenge yourself daily in this fast-paced word puzzle game."
     },
     "plugins": [
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "kotlinVersion": "2.2.20",
-            "compileSdkVersion": 35,
-            "targetSdkVersion": 35,
-            "buildToolsVersion": "35.0.0"
-          }
-        }
-      ],
       [
         "expo-router",
         {
