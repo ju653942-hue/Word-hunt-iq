@@ -2,6 +2,7 @@
   "expo": {
     "name": "Word Hunt",
     "slug": "word-hunt-iq",
+    "owner": "alta9000",
     "version": "1.0.1",
     "runtimeVersion": {
       "policy": "appVersion"
