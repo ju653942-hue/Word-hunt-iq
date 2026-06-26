@@ -16,7 +16,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { GameProvider } from "@/context/GameContext";
 import SplashScreenView from "@/components/SplashScreenView";
-import { initAdMob } from "@/utils/initAdMob";
 import { preloadSounds } from "@/utils/soundManager";
 
 SplashScreen.preventAutoHideAsync();
@@ -51,7 +50,7 @@ export default function RootLayout() {
 
   const [splashDone, setSplashDone] = useState(false);
 
-  useEffect(() => { initAdMob(); preloadSounds(); }, []);
+  useEffect(() => { preloadSounds(); }, []);
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
