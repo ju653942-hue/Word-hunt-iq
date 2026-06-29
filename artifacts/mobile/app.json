@@ -1,0 +1,97 @@
+{
+  "expo": {
+    "name": "Word Hunt",
+    "slug": "word-hunt-iq",
+    "version": "1.0.1",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "orientation": "portrait",
+    "icon": "./assets/Images/icon.png",
+    "scheme": "wordhunt",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/Images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0218"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.wordhunt.game",
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.jalaltech.wordhuntiq",
+      "versionCode": 3,
+      "compileSdkVersion": 34,
+      "targetSdkVersion": 34,
+      "minSdkVersion": 24,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/Images/icon.png",
+        "backgroundColor": "#0a0218"
+      },
+      "permissions": [
+        "android.permission.VIBRATE",
+        "android.permission.INTERNET"
+      ],
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.READ_CONTACTS",
+        "android.permission.WRITE_CONTACTS",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/Images/icon.png",
+      "bundler": "metro",
+      "description": "Word Hunt — find hidden words, build your streak, and challenge yourself daily in this fast-paced word puzzle game."
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://replit.com/"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "2.0.21",
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 34
+          }
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-4356067796830671~9507716748",
+          "delayAppMeasurementInit": true
+        }
+      ],
+      "expo-font",
+      "expo-web-browser",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0a0218",
+          "image": "./assets/Images/icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f878a049-7224-4f6d-8069-712be8c1fa40"
+      }
+    }
+  }
+}
