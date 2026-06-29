@@ -51,11 +51,20 @@
     },
     "plugins": [
       [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "2.2.20"
+          }
+        }
+      ],
+      [
         "expo-router",
         {
           "origin": "https://replit.com/"
         }
       ],
+      "expo-font",
       [
         "react-native-google-mobile-ads",
         {
@@ -63,7 +72,6 @@
           "iosAppId": "ca-app-pub-4356067796830671~9507716748"
         }
       ],
-      "expo-font",
       [
         "expo-splash-screen",
         {
