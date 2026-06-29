@@ -51,30 +51,27 @@
     },
     "plugins": [
       [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "2.2.20"
+          }
+        }
+      ],
+      [
         "expo-router",
         {
           "origin": "https://replit.com/"
         }
       ],
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "kotlinVersion": "2.0.21",
-            "compileSdkVersion": 35,
-            "targetSdkVersion": 34
-          }
-        }
-      ],
+      "expo-font",
       [
         "react-native-google-mobile-ads",
         {
           "androidAppId": "ca-app-pub-4356067796830671~9507716748",
-          "delayAppMeasurementInit": true
+          "iosAppId": "ca-app-pub-4356067796830671~9507716748"
         }
       ],
-      "expo-font",
-      "expo-web-browser",
       [
         "expo-splash-screen",
         {
