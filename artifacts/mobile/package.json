@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "expo-av": "^16.0.8",
+    "expo-build-properties": "^56.0.19",
     "react-native-google-mobile-ads": "^16.3.4"
   },
   "resolutions": {
