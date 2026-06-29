@@ -10,7 +10,7 @@
     "icon": "./assets/Images/icon.png",
     "scheme": "wordhunt",
     "userInterfaceStyle": "dark",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "splash": {
       "image": "./assets/Images/icon.png",
       "resizeMode": "contain",
