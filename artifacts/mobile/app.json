@@ -50,14 +50,7 @@
       "description": "Word Hunt — find hidden words, build your streak, and challenge yourself daily in this fast-paced word puzzle game."
     },
     "plugins": [
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "kotlinVersion": "2.1.0"
-          }
-        }
-      ],
+      
       [
         "expo-router",
         {
