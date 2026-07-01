@@ -599,7 +599,7 @@ export default function GameGrid() {
     if (row >= 0 && row < gSize && col >= 0 && col < gSize) return { row, col };
     return null;
   };
-
+const lastMoveTimeRef = useRef(0);
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -622,6 +622,9 @@ export default function GameGrid() {
         }
       },
       onPanResponderMove: (evt) => {
+        const now = Date.now();
+if (now - lastMoveTimeRef.current < 16) return;
+lastMoveTimeRef.current = now;
         const startCell = grantCellRef.current;
         if (!startCell) return;
         const { pageX, pageY } = evt.nativeEvent;
