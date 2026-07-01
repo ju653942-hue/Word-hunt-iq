@@ -705,7 +705,7 @@ export default function GameGrid() {
 
   if (!puzzle) return null;
 
-  const theme = getDifficultyTheme(difficulty);
+  const theme = useMemo(() => getDifficultyTheme(difficulty), [difficulty]);
 
   return (
     <View key={puzzleKey} style={[styles.outerWrapper, { width: gridTotalSize }]}>
