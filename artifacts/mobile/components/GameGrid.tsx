@@ -401,18 +401,19 @@ const GridCell = memo(function GridCell({
         webStyle,
       ]}
     >
-      {/* Glow ring layer (behind cell) */}
-      <Animated.View
-        style={{
-          position: "absolute",
-          top: pad - 4, left: pad - 4,
-          right: pad - 4, bottom: pad - 4,
-          borderRadius: r + 4,
-          backgroundColor: glowColor,
-          opacity: glowAnim,
-          pointerEvents: "none",
-        } as any}
-      />
+      {isJustFound && (
+  <Animated.View
+    style={{
+      position: "absolute",
+      top: pad - 4, left: pad - 4,
+      right: pad - 4, bottom: pad - 4,
+      borderRadius: r + 4,
+      backgroundColor: glowColor,
+      opacity: glowAnim,
+      pointerEvents: "none",
+    } as any}
+  />
+)}
 
       <View
         style={{
