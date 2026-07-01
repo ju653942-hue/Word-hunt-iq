@@ -424,14 +424,7 @@ const GridCell = memo(function GridCell({
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
-          ...(Platform.OS !== "web" && isSelected
-            ? {
-                shadowColor: isLastSelected ? "#ffe066" : "#9b5fff",
-                shadowOpacity: 0.8,
-                shadowRadius: 6,
-                shadowOffset: { width: 0, height: 0 },
-              }
-            : {}),
+          ...({}),
         }}
       >
         <Text
