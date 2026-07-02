@@ -23,7 +23,7 @@
     },
     "android": {
       "package": "com.jalaltech.wordhuntiq",
-      "versionCode": 3,
+      "versionCode": 4,
       "compileSdkVersion": 34,
       "targetSdkVersion": 34,
       "minSdkVersion": 24,
@@ -92,7 +92,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "f3b408c1-8c4f-4213-8adb-0891f8fe5537"
+        "projectId": "8efad970-d4ce-41fa-8913-096c2979ce27"
       }
     }
   }
