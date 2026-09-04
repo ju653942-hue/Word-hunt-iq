@@ -12,6 +12,8 @@ import {
   Text,
   View,
 } from "react-native";
+import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads";
+
 
 const DIFFICULTY_BG = {
   easy:   require("@/assets/Images/bg_easy.jpg"),
