@@ -1138,6 +1138,17 @@ export default function GameScreen() {
           <Text style={styles.generatingText}>Generating puzzle…</Text>
         </View>
       )}
+            {/* Bottom Banner Ad */}
+      <View style={{ alignItems: "center", justifyContent: "center", width: "100%", paddingBottom: bottomInset, backgroundColor: "transparent" }}>
+        <BannerAd
+          unitId={__DEV__ ? TestIds.BANNER : "ca-app-pub-4356067796830671/7329636778"}
+          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: true,
+          }}
+        />
+      </View>
+
     </ImageBackground>
   );
 }
